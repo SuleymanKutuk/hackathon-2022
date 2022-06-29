@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue
+{% endblock %}
+
+{% block body %}
+	{% if app.user %}
+		<div class="mb-3">
+			You are logged in as
+			{{ app.user.userIdentifier }},
+			<a class="btn btn-light" href="{{ path('app_logout') }}">Logout</a>
+		</div>
+	{% endif %}
+
+	<h2 class="m-4 text-uppercase">Bonjour
+		{{app.user.Email}}</h2>
+
+{% endblock %}

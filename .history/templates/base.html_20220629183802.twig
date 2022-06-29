@@ -10,7 +10,7 @@
 
 		<link rel="icon" type="image/png" href="{{ asset ('build/images/favicon.png') }}"/>
 		<title>
-			{% block title %}GAKSS
+			{% block title %}Flam's
 			{% endblock %}
 		</title>
 
@@ -25,7 +25,9 @@
 		{% endblock %}
 	</head>
 	<body>
-		<header></header>
+		<header>
+			{% include "./layout/_navbar.html.twig" %}
+		</header>
 		<main>
 			{% block body %}{% endblock %}
 		</main>
