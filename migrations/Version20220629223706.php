@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220629161727 extends AbstractMigration
+final class Version20220629223706 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -30,6 +30,7 @@ final class Version20220629161727 extends AbstractMigration
         $this->addSql('CREATE TABLE project_type_used_language (project_type_id INT NOT NULL, used_language_id INT NOT NULL, INDEX IDX_D8592D4E535280F6 (project_type_id), INDEX IDX_D8592D4E3F080A66 (used_language_id), PRIMARY KEY(project_type_id, used_language_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE status (id INT AUTO_INCREMENT NOT NULL, status VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE team (id INT AUTO_INCREMENT NOT NULL, agency_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, INDEX IDX_C4E0A61FCDEADB2A (agency_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE team_work_space (id INT AUTO_INCREMENT NOT NULL, team_id INT DEFAULT NULL, work_space_id INT NOT NULL, proposition LONGTEXT NOT NULL, is_granted TINYINT(1) NOT NULL, INDEX IDX_3F50C8D0296CD8AE (team_id), INDEX IDX_3F50C8D0F6E2D91C (work_space_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE ticket (id INT AUTO_INCREMENT NOT NULL, work_space_id INT DEFAULT NULL, label_id INT DEFAULT NULL, status_id INT DEFAULT NULL, user_id INT DEFAULT NULL, task VARCHAR(255) NOT NULL, predicted_time INT NOT NULL, description LONGTEXT NOT NULL, created_in DATE NOT NULL, INDEX IDX_97A0ADA3F6E2D91C (work_space_id), INDEX IDX_97A0ADA333B92F39 (label_id), INDEX IDX_97A0ADA36BF700BD (status_id), UNIQUE INDEX UNIQ_97A0ADA3A76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE used_language (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -45,6 +46,8 @@ final class Version20220629161727 extends AbstractMigration
         $this->addSql('ALTER TABLE project_type_used_language ADD CONSTRAINT FK_D8592D4E535280F6 FOREIGN KEY (project_type_id) REFERENCES project_type (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE project_type_used_language ADD CONSTRAINT FK_D8592D4E3F080A66 FOREIGN KEY (used_language_id) REFERENCES used_language (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE team ADD CONSTRAINT FK_C4E0A61FCDEADB2A FOREIGN KEY (agency_id) REFERENCES agency (id)');
+        $this->addSql('ALTER TABLE team_work_space ADD CONSTRAINT FK_3F50C8D0296CD8AE FOREIGN KEY (team_id) REFERENCES team (id)');
+        $this->addSql('ALTER TABLE team_work_space ADD CONSTRAINT FK_3F50C8D0F6E2D91C FOREIGN KEY (work_space_id) REFERENCES work_space (id)');
         $this->addSql('ALTER TABLE ticket ADD CONSTRAINT FK_97A0ADA3F6E2D91C FOREIGN KEY (work_space_id) REFERENCES work_space (id)');
         $this->addSql('ALTER TABLE ticket ADD CONSTRAINT FK_97A0ADA333B92F39 FOREIGN KEY (label_id) REFERENCES label (id)');
         $this->addSql('ALTER TABLE ticket ADD CONSTRAINT FK_97A0ADA36BF700BD FOREIGN KEY (status_id) REFERENCES status (id)');
@@ -64,12 +67,14 @@ final class Version20220629161727 extends AbstractMigration
         $this->addSql('ALTER TABLE project DROP FOREIGN KEY FK_2FB3D0EE535280F6');
         $this->addSql('ALTER TABLE project_type_used_language DROP FOREIGN KEY FK_D8592D4E535280F6');
         $this->addSql('ALTER TABLE ticket DROP FOREIGN KEY FK_97A0ADA36BF700BD');
+        $this->addSql('ALTER TABLE team_work_space DROP FOREIGN KEY FK_3F50C8D0296CD8AE');
         $this->addSql('ALTER TABLE user_team DROP FOREIGN KEY FK_BE61EAD6296CD8AE');
         $this->addSql('ALTER TABLE project_type_used_language DROP FOREIGN KEY FK_D8592D4E3F080A66');
         $this->addSql('ALTER TABLE ticket DROP FOREIGN KEY FK_97A0ADA3A76ED395');
         $this->addSql('ALTER TABLE user_team DROP FOREIGN KEY FK_BE61EAD6A76ED395');
         $this->addSql('ALTER TABLE chat DROP FOREIGN KEY FK_659DF2AAF6E2D91C');
         $this->addSql('ALTER TABLE project DROP FOREIGN KEY FK_2FB3D0EEF6E2D91C');
+        $this->addSql('ALTER TABLE team_work_space DROP FOREIGN KEY FK_3F50C8D0F6E2D91C');
         $this->addSql('ALTER TABLE ticket DROP FOREIGN KEY FK_97A0ADA3F6E2D91C');
         $this->addSql('DROP TABLE agency');
         $this->addSql('DROP TABLE channel');
@@ -81,6 +86,7 @@ final class Version20220629161727 extends AbstractMigration
         $this->addSql('DROP TABLE project_type_used_language');
         $this->addSql('DROP TABLE status');
         $this->addSql('DROP TABLE team');
+        $this->addSql('DROP TABLE team_work_space');
         $this->addSql('DROP TABLE ticket');
         $this->addSql('DROP TABLE used_language');
         $this->addSql('DROP TABLE user');

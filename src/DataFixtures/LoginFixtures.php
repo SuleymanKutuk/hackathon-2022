@@ -29,15 +29,18 @@ class LoginFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
 
-        for ($i = 0; $i < 1; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $user = new User();
 
             $user->setEmail($faker->email);
+            $user->setFirstname('Kutuk');
+            $user->setlastname('Yavuz');
             $user->setPassword('password');
             $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
             $user->setPassword($hashedPassword);
             $user->setRoles(['ROLE_ADMIN']);
             $manager->persist($user);
+            $this->addReference('user_'.$i,$user);
         }
         $manager->flush();
     }
