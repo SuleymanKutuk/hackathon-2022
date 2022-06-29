@@ -6,7 +6,13 @@
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
 
-
+		{% if app.user %}
+			<div class="mb-3">
+				You are logged in as
+				{{ app.user.userIdentifier }},
+				<a href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
 		<section class="vh-100 gradient-custom">
 			<div class="container py-5 h-100">
 				<div class="row d-flex justify-content-center align-items-center h-100">
@@ -17,7 +23,7 @@
 									<h2 class=" mb-5 text-uppercase">G A K K S</h2>
 									<p class="text-dark-50 ">Saisissez votre identifiant et votre mot de passe.</p>
 									<div class="form-outline mb-4">
-										<input type="email" value="{{ app.user}}" name="email" id="form2Example1" class="form-control" autocomplete="email" required autofocus>
+										<input type="email" value="{{ app.user.Email}}" name="email" id="form2Example1" class="form-control" autocomplete="email" required autofocus>
 										<label class="form-label" for="form2Example1">Email</label>
 									</div>
 									<div class="form-outline mb-4">

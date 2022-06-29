@@ -16,34 +16,29 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class SecurityController extends AbstractController
 {
-    #[Route(path: '/login', name: 'app_login')]
+    #[Route(path: '/', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        /*if ($this->getUser()) {
-            return $this->render('dashboard/dashboard.html.twig', /*[
-                'user' => $this->getUser(),
-            ];*/
-
+        if ($this->getUser()) {
+            return $this->render('dashboard/dashboard.html.twig');
+        }
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 
         // last username entered by the user
-        $last_username = $authenticationUtils->getLastUsername();
+        $email = $authenticationUtils->getLastUsername();
 
 
 
         return $this->render(
             'security/login.html.twig',
-            ['last_username' => $last_username, 'error' => $error]
+            ['email' => $email, 'error' => $error]
         );
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
-    public function logout(): Response
+    public function logout(): void
     {
-        return $this->render(
-            'security/login.html.twig'
-        );
         throw
         new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }

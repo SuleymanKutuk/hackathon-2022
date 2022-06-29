@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue
+{% endblock %}
+
+{% block body %}
+
+	<h2 class="m-4 text-uppercase">Bonjour
+		{{app.user.lastname ~ " "~  app.user.firstname}}</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-md-12 col-lg-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">CA de la Semaine</h5>
+						<div class="card-img">
+							<img class="dashboard-logo" src="{{ asset('build/images/graph1_dashboard.png') }}" alt="graph">
+							<img class="dashboard-logo" src="{{ asset('build/images/graph1_dashboard.png') }}" alt="graph">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-md-12 col-lg-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Ventes par famille</h5>
+						<div class="card-img">
+							<img class="dashboard-logo" src="{{ asset('build/images/graph_dashboard.png') }}" alt="graph">
+							<img class="dashboard-logo" src="{{ asset('build/images/graph_dashboard.png') }}" alt="graph">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-md-12 col-lg-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Ajouter un onglet</h5>
+						<div class="card-img">
+							<img class="dashboard-logo" src="{{ asset('build/images/add_button.png') }}" alt="ajouter un onglet">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
