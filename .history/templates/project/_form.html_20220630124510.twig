@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+
+	<section class="get-in-touch">
+		<h1 class="title">Create new Project</h1>
+
+
+		<form class="contact-form row" method="POST">
+			<div class="form-field col-lg-6">
+				<input class="input-text js-input" type="text" name="nom">
+				<label class="label" for="Nom">
+					Title
+					{{ project.title }}</label>
+			</div>
+			<div class="form-field col-lg-6">
+				<input class="input-text js-input" type="text">
+				<label class="label" for="Prénom">Created On</label>
+			</div>
+			<div class="form-field col-lg-6 ">
+				<input class="input-text js-input">
+				<label class="label">Status
+					{{ project.status }}</label>
+			</div>
+			<div class="form-field col-lg-6 ">
+				<input class="input-text js-input">
+				<label class="label">Deadline
+					{{ project.deadline ? project.deadline|date('Y-m-d') : '' }}</label>
+			</div>
+			<div class="form-field col-lg-6 ">
+				<input class="input-text js-input" type="text">
+				<label class="label">Agency
+					{{ project.agency }}</label>
+			</div>
+			<div class="form-field col-lg-6 ">
+				<input class="input-text js-input">
+				<label class="label">Project Type
+					{{ project.type }}</label>
+			</div>
+
+			<div class="form-field col-lg-6 ">
+				<input class="input-text js-input" type="text">
+				<label class="label">
+					work_space{{ project.work_space }}</label>
+			</div>
+
+
+			<div class="form-field col-lg-12">
+				<input class="submit-btn" type="submit" value="Envoyer">
+
+			</div>
+		</form>
+	</section>
+
+
+{% endblock %}

@@ -5,15 +5,19 @@
 
 
 // the ~ allows you to reference things in node_modules
-@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";@import "newProject.scss";
 
 @import "global";
 
 @import "dashboard";
 
+
 @import "ticket";
+
 
 
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 $secondary-color: #999;
+
+
