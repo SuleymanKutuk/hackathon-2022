@@ -23,12 +23,17 @@
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
-	</head>
+	</head>	
 	<body>
-		<header></header>
+		<header>
+		{% include './layout/navbar.html.twig' %}
+		</header>
 		<main>
 			{% block body %}{% endblock %}
 		</main>
+		<aside> 
+		{% include './layout/sidebar.html.twig' %}
+		</aside>
 		<footer></footer>
 	</body>
 	<!-- JavaScript Bundle with Popper -->
