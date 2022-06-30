@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agency index{% endblock %}
+
+{% block body %}
+{% block stylesheet %} 
+    {{ encore_entry_link_tags('agency') }}
+{% endblock %}
+    <h1>Agency index</h1>
+        <div class='card-group'>
+            {% for agency in agencies %}        
+                <div class="card text-bg-dark mb-3" style="max-width: 18rem; min-width: 18rem; margin-left: 5%">
+                    <div class="card-header">{{ agency.name }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ agency.address }}</h5>
+                        <h5 class="card-title">{{ agency.city }}</h5>
+                        <a href="{{ path('app_agency_show', {'id': agency.id}) }}">show</a>                        
+                        <a href="{{ path('app_agency_edit', {'id': agency.id}) }}">edit</a>
+                    </div>
+                </div>
+            {% endfor %} 
+        </div> 
+
+    <a href="{{ path('app_agency_new') }}">Create new</a>
+{% endblock %}
