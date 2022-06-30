@@ -25,16 +25,33 @@
 		{% endblock %}
 	</head>	
 	<body>
+<div class="parent">
+	<div class="div1">
+
 		<header>
-		{% include './layout/navbar.html.twig' %}
-		</header>
-		<main>
-			{% block body %}{% endblock %}
-		</main>
-		<aside> 
-		{% include './layout/sidebar.html.twig' %}
+			{% block header %}
+				{% include './layout/navbar.html.twig' %}
+			{% endblock %}
+		</header> 
+	
+	</div>
+
+	<div class="div2"> 
+
+		<aside>
+			{% include './layout/sidebar.html.twig' %}
 		</aside>
-		<footer></footer>
+
+	</div>
+
+	<div class="div3">
+	
+			{% block body %}{% endblock %}
+		
+	</div>
+
+</div>
+		
 	</body>
 	<!-- JavaScript Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
