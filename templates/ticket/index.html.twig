@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket index{% endblock %}
+
+{% block stylesheet %}
+    {{ encore_entry_link_tags('ticket') }}
+{% endblock %}    
+
+{% block body %}
+
+<h1>
+    <span class="toptitle">Project</span>
+</h1>
+  <section class= "sectitle">
+    <h2>Tasks</h2>
+    <h2>Channels</h2>
+</section>
+  <section class= "thirtitle">
+    <h4>All tasks</h4>
+    <h4>My tasks</h4>
+    <h4>Started</h4>
+    <h4>Finished</h4>
+</section>
+
+
+
+
+ {% for ticket in tickets %}
+
+
+ <div class="card border-none mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent"> <td>{{ ticket.id}} - USER STORY - </td></div>
+  <div class="card-body text-white">
+<div class="btn">
+<button type="button" class="btn btn-success"></button>
+<button type="button" class="btn btn-danger"></button>
+<button type="button" class="btn btn-warning"></button>
+ </div>
+    <h5 class="card-title"><td>{{ ticket.task }}</td></h5>
+    <p class="card-text"> <td>{{ ticket.description }}</td></p>
+     <p class="card-text">  <td>{{ ticket.createdIn ? ticket.createdIn|date('Y-m-d') : '' }}</td></p>
+  </div>
+  <div class="card-footer bg-transparent"> <td>{{ ticket.predictedTime }} hours</td></div>
+ <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+   <button class="btn2 btn-primary" type="button">Assign</button>
+   </div>
+  <a href="{{ path('app_ticket_show', {'id': ticket.id}) }}">show</a>
+  <a href="{{ path('app_ticket_edit', {'id': ticket.id}) }}">edit</a>
+ 
+</div>
+</div>
+
+
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ticket_new') }}">Create new</a>
+{% endblock %}
