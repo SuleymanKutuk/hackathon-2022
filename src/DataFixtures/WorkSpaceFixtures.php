@@ -19,6 +19,7 @@ class WorkSpaceFixtures extends Fixture
 
             $workSpace = new WorkSpace();
 
+            $workSpace->setName($faker->name);
             $workSpace->setInterested(false);
             $manager->persist($workSpace);
             $this->addReference('workSpace_'.$i,$workSpace);

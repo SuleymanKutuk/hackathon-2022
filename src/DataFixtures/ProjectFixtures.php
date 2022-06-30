@@ -22,7 +22,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
             $date = new DateTime('now');
 
             $project = new Project();
-            $project->settitle($faker->title);
+            $project->settitle($faker->name);
             $project->setStatus($faker->randomElement(['status_01','status_02','status_03']));
             $project->setCreatedOn($date);
             $project->setDeadline($date);
