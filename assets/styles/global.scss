@@ -1,0 +1,11 @@
+@mixin frame {
+    border-radius: 10px;
+    border: 3px solid black;
+    border-top: 3px groove grey;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}

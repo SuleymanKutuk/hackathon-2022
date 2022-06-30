@@ -1,0 +1,17 @@
+body {
+    background-image: url("../../assets/images/fond_hackathon.png");
+    background-position: right;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    @include frame;
+}

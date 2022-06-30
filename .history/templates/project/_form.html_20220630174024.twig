@@ -32,10 +32,9 @@
 				</div>
 			</div>
 		</div>
-		<button class=" btn btn-light w-25  mt-5  ">{{ button_label|default('Ajouter') }}</button>
-
+		<button class=" btn btn-light w-25  mt-5 d-flex ">{{ button_label|default('Ajouter') }}</button>
+		{{ form_end(form) }}
 	</div>
-	{{ form_end(form) }}
 
 
 {% endblock %}
