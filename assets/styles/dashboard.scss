@@ -6,6 +6,12 @@ body {
     align-items: center;
 }
 
+h1 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
 .table {
     @include frame;
 }

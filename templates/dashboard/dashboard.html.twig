@@ -4,15 +4,33 @@
 {% endblock %}
 
 {% block body %}
-	{% if app.user %}
+	<h1>Comm'Side <br>
+	Project Management</h1>
 
-		<div class="mb-3">
+	<h2 class="m-4 text-uppercase">Welcome,
+		{{app.user.firstname}} !</h2>
 
-			<a class="btn btn-light" href="{{ path('app_logout') }}">Déconnexion</a>
-		</div>
-	{% endif %}
-
-	<h2 class="m-4 text-uppercase">Bonjour
-		{{app.user.Email}}</h2>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Please, choose your Workspace</a><br>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            v
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 {% endblock %}
