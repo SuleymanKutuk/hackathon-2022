@@ -1,0 +1,23 @@
+@import "~bootstrap/scss/bootstrap";
+
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$secondary-color: #999;
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.marge {
+    margin-left: 47%
+}
+
+form {
+    margin-left: 47%;
+}
+
+.card-group {
+    display: flex;
+    flex-wrap: wrap;
+}
