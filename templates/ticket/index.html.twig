@@ -28,7 +28,7 @@
  {% for ticket in tickets %}
 
 
- <div class="card border-none mb-3" style="max-width: 18rem;">
+ <div class="card border-none mb-3" style="width: 18rem; height: 22rem">
   <div class="card-header bg-transparent"> <td>{{ ticket.id}} - USER STORY - </td></div>
   <div class="card-body text-white">
 <div class="btn">
@@ -41,9 +41,12 @@
      <p class="card-text">  <td>{{ ticket.createdIn ? ticket.createdIn|date('Y-m-d') : '' }}</td></p>
   </div>
   <div class="card-footer bg-transparent"> <td>{{ ticket.predictedTime }} hours</td></div>
- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-   <button class="btn2 btn-primary" type="button">Assign</button>
-   </div>
+<button type="button" class="btn btn-secondary btn2"
+        data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="custom-tooltip"
+        title="This user story has been assigned to {{ ticket.user.firstname }}">
+  Assigned
+</button>
   <a href="{{ path('app_ticket_show', {'id': ticket.id}) }}">show</a>
   <a href="{{ path('app_ticket_edit', {'id': ticket.id}) }}">edit</a>
  
