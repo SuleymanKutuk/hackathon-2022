@@ -1,0 +1,55 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+h1{
+    font-family: 'Anton', sans-serif;
+    font-weight: bolder;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+h2{
+    text-decoration: underline;
+    display: inline;
+    padding: 30px;
+}
+
+h4{
+    text-decoration: underline;
+    display: inline;
+    padding: 30px;
+}
+
+.thirtitle{
+    padding:30px;
+  
+}
+
+.card{
+    display:inline-block;
+    margin: 30px;
+    border-radius: 7%;
+   background: linear-gradient(to right, #122C54 0%, #1C6EA4 50%, #088DC5 100%);
+    color: white;
+    box-shadow: 11px 8px 24px -1px #6C163B;
+
+   
+}
+  
+.card-text{
+    color: white;
+}
+
+.btn{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn2{
+    border-radius: 7%;
+    background: linear-gradient(to right, #540E3F 0%, #A41937 50%, #C55D6B 100%);
+    align-items: center;
+    border-color: rgb(214, 65, 90);
+    box-shadow: blueviolet;
+}
