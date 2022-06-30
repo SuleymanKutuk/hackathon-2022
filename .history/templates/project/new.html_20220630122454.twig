@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Project
+{% endblock %}
+
+{% block body %}
+
+
+	<h1 class="get-in-touch title">Create new Project</h1>
+
+	{{ include('project/_form.html.twig') }}
+
+	<a href="{{ path('app_project_index') }}">back to list</a>
+{% endblock %}

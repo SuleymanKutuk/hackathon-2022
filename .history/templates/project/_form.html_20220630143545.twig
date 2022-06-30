@@ -1,0 +1,70 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	{{ form_start(form) }}
+	<section class="get-in-touch">
+		<h1 class="title">Create new Project</h1>
+
+		<form class="contact-form row" method="POST">
+
+			<div class="form-field col-lg-6">
+
+				<h2 class="label">
+					Title
+					{{ form_row(project.title ) }}</h2>
+			</div>
+
+			<div class="form-field col-lg-6">
+
+				<h2 class="label">Created On
+					{{ form_row(project.createdon ) }}</h2>
+			</div>
+			<div class="form-field col-lg-6 ">
+
+				<h2 class="label">Status
+					{{ form_row(project.status ) }}</h2>
+			</div>
+
+			<div class="form-field col-lg-6 ">
+
+				<h2 class="label">Deadline
+					{{ form_row(project.deadline ? project.deadline|date('Y-m-d') : '') }}
+				</h2>
+			</div>
+
+			<div class="form-field col-lg-6 ">
+
+				<h2 class="label">Agency
+					{{ form_row(project.agency ) }}
+				</h2>
+			</div>
+			<div class="form-field col-lg-6 ">
+
+				<h2 class="label">Project Type
+					{{ form_row(project.projecttype ) }}
+				</h2>
+			</div>
+
+			<div class="form-field col-lg-6 ">
+
+				<h2 class="label">
+					work_space
+					{{ form_row(project.workspace ) }}</h2>
+			</div>#}
+
+
+			<div class="form-field col-lg-12">
+				<button class="btn btn-dark w-25 mx-auto mt-5">{{ button_label|default('Ajouter') }}</button><br><br>
+
+			</div>
+
+
+			{{ form_end(form) }}
+
+		</form>
+
+	</section>
+
+
+{% endblock %}
