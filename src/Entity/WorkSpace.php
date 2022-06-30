@@ -27,6 +27,9 @@ class WorkSpace
     #[ORM\OneToMany(mappedBy: 'workSpace', targetEntity: TeamWorkSpace::class, orphanRemoval: true)]
     private $teamWorkSpaces;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $name;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
@@ -137,6 +140,18 @@ class WorkSpace
                 $teamWorkSpace->setWorkSpace(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
