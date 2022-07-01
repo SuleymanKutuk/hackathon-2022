@@ -26,9 +26,8 @@
 					<td>{{ project.status }}</td>
 					<td>{{ project.deadline ? project.deadline|date('Y-m-d') : '' }}</td>
 					<td>
-						<a class="btn btn-light d-flex justify-content-center" href="{{ path('app_project_show', {'id': project.id}) }}">show</a>
-						&nbsp;
-						<a class="btn btn-outline-dark d-flex justify-content-center" href="{{ path('app_project_edit', {'id': project.id}) }}">edit</a>
+						<a class="btn btn-warning" href="{{ path('app_project_show', {'id': project.id}) }}">show</a>
+						<a href="{{ path('app_project_edit', {'id': project.id}) }}">edit</a>
 					</td>
 				</tr>
 			{% else %}
@@ -39,5 +38,5 @@
 		</tbody>
 	</table>
 
-	<a class="btn btn-light mw-20" href="{{ path('app_project_new') }}">Create new</a>
+	<a href="{{ path('app_project_new') }}">Create new</a>
 {% endblock %}
