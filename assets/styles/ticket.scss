@@ -4,12 +4,16 @@
 h1{
     font-family: 'Anton', sans-serif;
     font-weight: bolder;
+    text-align: center;
+    justify-content: center;
     padding: 30px;
     margin-top: 20px;
 }
 
 h2{
     text-decoration: underline;
+    text-align: center;
+    justify-content: center;
     display: inline;
     padding: 30px;
 }
@@ -40,11 +44,7 @@ h4{
     color: white;
 }
 
-.btn{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-}
+
 
 .btn2{
     border-radius: 7%;
