@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Projects{% endblock %}
+{% block title %}Project index
+{% endblock %}
 
 {% block body %}
-    <h1>Projects</h1>
+	<h1 class="d-flex justify-content-center">My Project</h1>
 
 	<table class="table">
 		<thead>
@@ -38,5 +39,5 @@
 		</tbody>
 	</table>
 
-	<a class="btn btn-light mw-20" href="{{ path('app_project_new') }}">Create new</a>
+	<a class="btn btn-light w-50" href="{{ path('app_project_new') }}">Create new</a>
 {% endblock %}
