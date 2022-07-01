@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Create a new project
+{% endblock %}
+{% block body %}
+	{{ form_start(form) }}
+	<div class="container contact-form d-flex">
+		<form method="POST">
+			<div class="m-4 mw-50 d-flex"></div>
+			<div class="row gap-4">
+				<div class="col-md-5">Title
+					{{ form_widget(form.title) }}
+				</div>
+				<div class="col-md-5">Status
+					{{ form_widget(form.status) }}
+				</div>
+
+				&nbsp; &#160;
+
+			</div>
+		</div>
+		{{ form_rest(form) }}</form>
+</div>
+{{ form_end(form) }}
+<button class="btn btn-light w-25  mt-5">{{ button_label|default('Ajouter') }}</button><br><br>{% endblock %}

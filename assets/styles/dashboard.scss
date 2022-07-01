@@ -1,17 +1,52 @@
 body {
     background-image: url("../../assets/images/fond_hackathon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: right;
     text-align: center;
     justify-content: center;
     align-items: center;
 }
 
-h1 {
-    text-align: center;
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 2 / 2 / 6; }
+    .div2 { grid-area: 1 / 1 / 6 / 2; }
+    .div3 { grid-area: 2 / 2 / 6 / 6; }
+
+.sidemenu {
+    padding-top: 70px;
+}
+
+.welcome {
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .table {
     @include frame;
+}
+
+.btnws {
+    border-radius: 100%;
+    background-color: linear-gradient(to right, #122C54 0%, #1C6EA4 50%, #088DC5 100%);
+    border: 3px solid greenyellow;
+}
+
+.btnwss {
+    display: flex;
+    justify-content: space-around;
+}
+
+h5 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }

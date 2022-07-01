@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit WorkSpace{% endblock %}
+
+{% block body %}
+    <h1>Edit WorkSpace</h1>
+
+    {{ include('work_space/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_work_space_index') }}">back to list</a>
+
+    {{ include('work_space/_delete_form.html.twig') }}
+{% endblock %}

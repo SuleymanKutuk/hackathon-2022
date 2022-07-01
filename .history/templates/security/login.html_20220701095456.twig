@@ -1,0 +1,48 @@
+{% block title %}{% endblock %}
+{% block body %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet"/>
+	<form method="post">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+
+
+		<section class="vh-100 gradient-custom">
+			<div class="container py-5 h-100">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+						<div class="card  text-dark" style="border-radius: 3rem;">
+							<div class="card-body p-5 text-center">
+								<div class="mb-md-5 mt-md-4 pb-5">
+									<h2 class=" mb-5 text-uppercase">G A K K S</h2>
+									<p class="text-dark-50 ">Saisissez votre identifiant et votre mot de passe.</p>
+									<div class="form-outline mb-4">
+										<input type="email" value="{{ app.user}}" name="email" id="form2Example1" class="form-control" autocomplete="email" required autofocus>
+										<label class="form-label" for="form2Example1">Email</label>
+									</div>
+									<div class="form-outline mb-4">
+										<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+										<label class="form-label" for="inputPassword">Mot de passe</label>
+										<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+									</div>
+									<div class="d-grid gap-3 d-flex align-items-center justify-content-center">
+
+
+										<button type="submit" class=" btn btn-dark">Se connecter</button>
+									</div>
+								</br>
+
+							</div>
+
+
+						</div>
+						<img class="rounded float-right" src="{{ asset ('/build/images/logo_apside.png')}}" width="120" height="120">
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<!-- MDB -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+</form>{% endblock %}

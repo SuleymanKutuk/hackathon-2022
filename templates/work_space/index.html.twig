@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WorkSpace index{% endblock %}
+
+{% block body %}
+    <h1>WorkSpace {{ work_space.name }}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Interested</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for work_space in work_spaces %}
+            <tr>
+                <td>{{ work_space.id }}</td>
+                <td>{{ work_space.interested ? 'Yes' : 'No' }}</td>
+                <td>{{ work_space.name }}</td>
+                <td>
+                    <a href="{{ path('app_work_space_show', {'id': work_space.id}) }}">show</a>
+                    <a href="{{ path('app_work_space_edit', {'id': work_space.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_work_space_new') }}">Create new</a>
+{% endblock %}

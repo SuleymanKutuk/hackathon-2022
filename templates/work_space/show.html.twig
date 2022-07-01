@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WorkSpace{% endblock %}
+
+{% block body %}
+    <h1>WorkSpace {{ work_space.id }} - {{ work_space.name }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ work_space.id }}</td>
+            </tr>
+            <tr>
+                <th>Interested</th>
+                <td>{{ work_space.interested ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ work_space.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>
+    <span class="toptitle">Projects</span>
+</h1>
+
+ {% for project in projects %}
+
+{% if work_space.id == project.workSpace.id %}
+
+ <div class="card border-none mb-3" style="width: 18rem; height: 22rem">
+  <div class="card-header bg-transparent"> <td>Project {{ project.id}}</td></div>
+  <div class="card-body text-white">
+<div class="btn">
+<button type="button" class="btn btn-success"></button>
+<button type="button" class="btn btn-danger"></button>
+<button type="button" class="btn btn-warning"></button>
+ </div>
+    <h5 class="card-title"><td>{{ project.title }}</td></h5>
+     
+  </div>
+  <div class="card-footer bg-transparent"> <td>Deadline {{ project.deadline ? project.deadline|date('Y-m-d') : '' }}</td></div>
+  <h5> Interested ?</h5><br>
+    <div class="btnwss">
+  <button type="button" class="btnws"> <a href="{{ path('app_project_show', {'id': project.id}) }}">Oui</a></button><br>
+  <button type="button" class="btnws"> <a href="{{ path('dashboard') }}">Non</a></button>
+    </div>
+</div>
+</div>
+        {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ticket_new') }}">Create new</a> <br><br>
+
+    <a href="{{ path('app_work_space_index') }}">back to list</a>
+
+    <a href="{{ path('app_work_space_edit', {'id': work_space.id}) }}">edit</a>
+
+    {{ include('work_space/_delete_form.html.twig') }}
+{% endblock %}

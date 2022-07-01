@@ -19,13 +19,14 @@ class MessageFixtures extends Fixture implements DependentFixtureInterface
         for($i=0;$i<10;$i++){
 
             $message = new Message();
+            $message->setTitle('messahe_.$i');
             $message->setMessage($faker->paragraph);
             $message->setChannel($this->getReference('channel_'.$i));
             $manager->persist($message);
             
         }
 
-        $manager->flush();
+        //$manager->flush();
     }
 
         public function getDependencies()

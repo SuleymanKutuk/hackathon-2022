@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1 class="d-flex justify-content-center">
+		Create a new project</h1>
+
+	<div class="container contact-form d-flex flex-column-reverse">
+
+		{{ form_start(form) }}
+		<div class="m-4 mw-50 ">
+			<div class="row gap-4">
+				<div class="col-md-5">
+					{{ form_row(form.title) }}
+				</div>
+				<div class="col-md-5">
+					{{ form_row(form.status) }}
+				</div>
+				<div class="col-md-5">
+					{{ form_row(form.createdOn) }}
+				</div>
+				<div class="col-md-5">
+					{{ form_row(form.deadline) }}
+				</div>
+				<div class="col-md-5">
+					{{ form_row(form.agency) }}
+				</div>
+				<div class="col-md-5">
+					{{ form_row(form.projectType) }}
+				</div>
+				<div class="col-md-5">
+					{{ form_row(form.workSpace) }}
+				</div>
+			</div>
+		</div>
+		<button class=" justify-content-center btn btn-light w-25  mt-5  ">{{ button_label|default('Ajouter') }}</button>
+
+	</div>
+	{{ form_end(form) }}
+
+
+{% endblock %}

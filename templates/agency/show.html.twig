@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agency{% endblock %}
+
+{% block body %}
+{% block stylesheet %} 
+    {{ encore_entry_link_tags('agency') }}
+{% endblock %}
+    <h1>Agency:</h1>
+
+    <div class="card text-bg-dark mb-3 center" style="max-width: 18rem;">
+        <div class="card-header">{{ agency.name }}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ agency.address }}</h5>
+                <h5 class="card-title">{{ agency.city }}</h5>
+            </div>
+        </div>
+    </div>
+
+    <a class="marge" href="{{ path('app_agency_index') }}">back to list</a>
+    </br>
+    <a class="marge" href="{{ path('app_agency_edit', {'id': agency.id}) }}">edit</a>
+
+    {{ include('agency/_delete_form.html.twig') }}
+{% endblock %}
