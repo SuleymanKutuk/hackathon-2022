@@ -5,21 +5,25 @@
 
 {% block body %}
 	<h1>Comm'Side <br>
-	Project Management</h1> <br><br>
+	Project Management</h1><br><br>
 
-	<h2 class="m-4 text-uppercase">Welcome,
-		{{app.user.firstname}} !</h2>
+	<div class="welcome">
+	<h2>Welcome,
+		{{app.user.firstname}} !</h2><br><br>
+
 
 	<div class="dropdown-center">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCenterBtn" data-bs-toggle="dropdown" aria-expanded="false">
     Please choose your Workspace
   </button>
+  
   <ul class="dropdown-menu" aria-labelledby="dropdownCenterBtn">
-    <li><a class="dropdown-item" href="#">Workspace 1</a></li>
-    <li><a class="dropdown-item" href="#">Workspace 2</a></li>
-    <li><a class="dropdown-item" href="#">Workspace 3</a></li>
-	<li><a class="dropdown-item" href="#">Workspace 4</a></li>
+  {% for workspace in workspaces %}
+    <li><a class="dropdown-item" href="{{ path('app_work_space_show', {'id': workspace.id}) }}">Workspace {{workspace.id}}</a></li>
+  {% endfor %}
   </ul>
+  
+</div>
 </div>
 
 {% endblock %}
