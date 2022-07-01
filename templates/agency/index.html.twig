@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Agency index{% endblock %}
+{% block title %}Agencies{% endblock %}
 
 {% block body %}
-    <h1>Agency index</h1>
+    <h1>Agencies</h1>
         <div class='card-group'>
             {% for agency in agencies %}        
                 <div class="card text-bg-dark mb-3" style="max-width: 18rem; min-width: 18rem; margin-left: 5%">
@@ -18,5 +18,5 @@
             {% endfor %} 
         </div> 
 
-    <a href="{{ path('app_agency_new') }}">Create new</a>
+    <a href="{{ path('app_agency_new') }}">Create new agency</a>
 {% endblock %}

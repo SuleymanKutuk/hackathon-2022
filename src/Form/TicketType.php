@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Ticket;
+use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,7 +21,13 @@ class TicketType extends AbstractType
             ->add('workSpace', null,['choice_label' => 'name'])
             ->add('label', null, ['choice_label' => 'label'])
             ->add('status', null, ['choice_label' => 'status'])
-            ->add('user',  null, ['choice_label' => 'firstname'])
+            ->add('user',  EntityType::class, [
+                "class" => User::class,
+                "choice_label" => "email",
+                "attr" => [
+                    "class" => "form-control"
+                    
+                ]])
         ;
     }
 
