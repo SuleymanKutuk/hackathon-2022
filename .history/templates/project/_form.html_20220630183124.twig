@@ -1,3 +1,5 @@
+{% extends "base.html.twig" %}
+
 {% block body %}
 	<h1 class="d-flex justify-content-center">
 		Create a new project</h1>
@@ -30,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-		<button class=" justify-content-center btn btn-light w-25  mt-5  ">{{ button_label|default('ADD') }}</button>
+		<button class=" justify-content-center btn btn-light w-25  mt-5  ">{{ button_label|default('Ajouter') }}</button>
 
 	</div>
 	{{ form_end(form) }}
