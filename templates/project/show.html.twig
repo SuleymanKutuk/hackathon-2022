@@ -30,9 +30,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_project_index') }}">back to list</a>
+    <a href="{{ path('app_ticket_index') }}">Voir les détails du projet</a><br>
 
-    <a href="{{ path('app_project_edit', {'id': project.id}) }}">edit</a>
+    <a href="{{ path('app_project_index') }}">back to list</a><br>
+
+    <a href="{{ path('app_project_edit', {'id': project.id}) }}">edit</a><br>
 
     {{ include('project/_delete_form.html.twig') }}
 {% endblock %}

@@ -3,9 +3,6 @@
 {% block title %}Agency index{% endblock %}
 
 {% block body %}
-{% block stylesheet %} 
-    {{ encore_entry_link_tags('agency') }}
-{% endblock %}
     <h1>Agency index</h1>
         <div class='card-group'>
             {% for agency in agencies %}        
